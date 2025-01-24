@@ -14,16 +14,12 @@ CÓDIGO UTILIZADO EM PYTHON:
 sequencia = DNA.txt
 def contar_nucleotideos(string):
     contagem = {}
-    for base in string:
+    for base in string: 
         if base in contagem:
             contagem[base] += 1
         else:
             contagem[base] = 1
     return contagem
-
-string = sequencia
-resultado = contar_nucleotideos(string)
-print(resultado)
 
 string = sequencia
 resultado = contar_nucleotideos(string)
@@ -35,13 +31,13 @@ print(resultado)
 B) Um novo arquivo (nomeado como RNA.txt) com a sequência de RNA transcrita.
 
 RESOLUÇÃO:
-Para a transcrição do RNA, usei funções de troca de caracteres da minha string (no caso a sequência do DNA). Utilizei as funções 'translate' e 'maketrans' para uma abordagem mais rapida e eficaz.
+Para a transcrição do RNA, usei funções de troca de caracteres da minha string (no caso a sequência do DNA). Utilizei as funções 'maketrans', para haver a 'troca' das bases e a função 'translate' para uma abordagem mais rápida e eficaz.
 
 CÓDIGO UTILIZADO EM PYTHON:
 
 RNA_trans = sequencia
 transcrito = str.maketrans({"T": "A", "A": "U", "C": "G", "G": "C"})
-RNA_trans = string.translate(transcrito)
+RNA_trans = sequencia.translate(transcrito)
 print(RNA_trans)
 
 RNA_trans = RNA.txt.
