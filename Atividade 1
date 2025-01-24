@@ -29,21 +29,24 @@ string = sequencia
 resultado = contar_nucleotideos(string)
 print(resultado)
 
-{'T': 189, 'A': 209, 'G': 201, 'C': 227}
+{'T': 189, 'A': 209, 'G': 201, 'C': 227}. 
 
 
 B) Um novo arquivo (nomeado como RNA.txt) com a sequência de RNA transcrita.
 
 RESOLUÇÃO:
-Para a transcrição do RNA, utilizei funções de troca dos caracteres da minha string (no caso a sequencia do DNA). Ao inves de usar a funcão 'replace' o que iria me causar atraso para que trocasse de um em um nucleotideo, utilizei as funções 'translate' e 'maketrans' para uma abordagem mais rapida e eficaz.
+Para a transcrição do RNA, usei funções de troca de caracteres da minha string (no caso a sequência do DNA). Utilizei as funções 'translate' e 'maketrans' para uma abordagem mais rapida e eficaz.
 
 CÓDIGO UTILIZADO EM PYTHON:
 
-string = sequencia
+RNA_trans = sequencia
 transcrito = str.maketrans({"T": "A", "A": "U", "C": "G", "G": "C"})
-nova_string = string.translate(transcrito)
-print(nova_string)
+RNA_trans = string.translate(transcrito)
+print(RNA_trans)
 
+RNA_trans = RNA.txt.
 
 
 C) Um novo arquivo (nomeado como AA.txt) com a sequência de aminoácidos traduzida.
+
+RESOLUÇÃO:
