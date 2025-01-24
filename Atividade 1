@@ -66,4 +66,17 @@ def traduzir_rna_para_aminoacidos(rna):
 aminoacidos = traduzir_rna_para_aminoacidos(rna)
 print(aminoacidos)
 
-aminoacidos = AA.txt.
+Para definir inicio da tradução (metionina) e fim (codon de parada), ainda utilizei a função de imrprimir apenas uma parte limitada da minha string:
+
+def tradução_AA(string, Metionina, codon_parada):
+    inicio = string.find(Metionina)
+    parada = string.find(codon_parada, inicio)
+     if inicio != -1 and parada != -1:
+        print(string[inicio:parada])
+
+string = aminoacidos
+Metionina = "M"
+codon_parada = "Ç"
+imprimir_substring(string, Metionina, codon_parada)
+
+Aminoácidos = AA.txt
