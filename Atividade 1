@@ -1,0 +1,49 @@
+Essa atividade foi realizada por meio de linguagem python.
+
+--------- ATIVIDADE 1 (RESOLUÇÃO)----------
+
+Dado um string de DNA (arquivo DNA.txt presente na mesma pasta) forneça:
+
+A) O número de vezes que cada um dos nucleotídeos 'A', 'C', 'G' e 'T' aparecem.
+
+RESOLUÇÃO: 
+Para contagem da quantidade de nucleotídeos 'A', 'C', 'G' e 'T', utilizei a função contagem em loop e adição ao dicionário para cada nucleotídeo.
+
+CÓDIGO UTILIZADO EM PYTHON:
+
+sequencia = DNA.txt
+def contar_nucleotideos(string):
+    contagem = {}
+    for base in string:
+        if base in contagem:
+            contagem[base] += 1
+        else:
+            contagem[base] = 1
+    return contagem
+
+string = sequencia
+resultado = contar_nucleotideos(string)
+print(resultado)
+
+string = sequencia
+resultado = contar_nucleotideos(string)
+print(resultado)
+
+{'T': 189, 'A': 209, 'G': 201, 'C': 227}
+
+
+B) Um novo arquivo (nomeado como RNA.txt) com a sequência de RNA transcrita.
+
+RESOLUÇÃO:
+Para a transcrição do RNA, utilizei funções de troca dos caracteres da minha string (no caso a sequencia do DNA). Ao inves de usar a funcão 'replace' o que iria me causar atraso para que trocasse de um em um nucleotideo, utilizei as funções 'translate' e 'maketrans' para uma abordagem mais rapida e eficaz.
+
+CÓDIGO UTILIZADO EM PYTHON:
+
+string = sequencia
+transcrito = str.maketrans({"T": "A", "A": "U", "C": "G", "G": "C"})
+nova_string = string.translate(transcrito)
+print(nova_string)
+
+
+
+C) Um novo arquivo (nomeado como AA.txt) com a sequência de aminoácidos traduzida.
