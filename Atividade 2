@@ -1,3 +1,13 @@
 Essa atividade foi realizada por meio de linguagem python.
 
 --------- ATIVIDADE 2 (RESOLUÇÃO)----------
+
+A partir do arquivo (alinhamento.fasta presente na mesma pasta) calcule a Distância de Hamming: 
+- Da sequência B em relação a A
+
+def distancia_de_hamming(string1, string2): 
+    Diferenças = sum(1 for c1, c2 in zip(string1, string2) if c1 != c2)
+    return Diferenças
+
+
+- Da sequência C em relação a A
