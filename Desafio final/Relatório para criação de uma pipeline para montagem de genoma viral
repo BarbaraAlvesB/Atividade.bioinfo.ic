@@ -50,5 +50,16 @@ CÓDIGO EM PYTHON:
 run_command(f"spades.py -s {input_reads} -o {output_dir} --only-assembler", "Executando SPAdes para montagem")
 
 
+4. Análise de Resultados
+Essa é uma etapa cuscial para avaliar a qualidade do genoma depois de sua montagem. então utiliza-se de métricas como o número de contigs, N50 e o comprimento total para verificar se a montagem foi bem-sucedida.
+
+Para isso, utiliza-se frequentemente a ferramenta:
+Biopython, que manipula arquivos FASTA e calcula métricas básicas.
+Com o uso dessa ferramenta busca-se calcular:
+- Número de contigs.
+- Comprimento total das sequências.
+- N50, que indica a qualidade da montagem (quanto maior, melhor).
+
+
 
 
