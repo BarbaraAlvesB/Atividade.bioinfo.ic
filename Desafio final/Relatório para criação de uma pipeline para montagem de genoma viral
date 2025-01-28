@@ -1,0 +1,54 @@
+Para que essa atividade fosse executada, tive que pesquisar e ler bastente sobre pipelines, uma vez que por não ter experiência, não tinha ciência do que se tratava.
+Como eu só havia um breve conhecimento para que pudesse desenvolver um código tão especifico e complexo, optei pelo auxilio de IA juntamente com a curiosidade pelo entedimento das etapas e ferramentas utilizadas.
+A partir do fato que o objetivo principal era gerar uma sequência consenso do genoma viral com alta qualidade, removendo leituras de baixa qualidade, contaminantes e fornecendo métricas básicas de montagem, optei por uma pipeline projetada em linguagem python.
+
+--------------- Iniciando o desenvolvimento da pipeline: ---------------
+
+Primeiro tracei qual era a saída que eu buscava com a pipeline e para que os objetivos fossem atendidos, o que seria a entrada:
+Entrada:
+- Arquivos FASTQ contendo leituras virais.
+- Arquivo de adaptadores para remoção.
+- Banco de contaminantes.
+
+Saída:
+- Relatórios de qualidade (FastQC).
+- Leituras limpas (FASTQ).
+- Arquivo de contigs montados (FASTA).
+
+A partir dessa determinação, iniciei as etapas propostas:
+
+1. Controle de Qualidade das Leituras
+Como os dados de sequenciamento podem conter erros, leituras de baixa qualidade ou adaptadores que interferem na análise, essa etapa deveria garantir que seriam usados apenas dados confiáveis.
+Para isso, utiliza-se frequentemente as ferramentas:
+- FastQC, que gera relatórios de qualidade para identificar problemas nas leituras, como baixa qualidade ou adaptadores;
+- Trimmomatic, que busca remover adaptadores e leituras de baixa qualidade com base em critérios predefinidos.
+
+CÓDIGO EM PYTHON:
+run_command(f"fastqc {input_reads} -o {fastqc_dir}", "Executando FastQC")
+run_command(f"trimmomatic SE {input_reads} {output_clean_reads} ILLUMINACLIP:{adapter_file}:2:30:10 SLIDINGWINDOW:4:20 MINLEN:50","Executando Trimmomatic para limpeza")
+
+
+2. Remoção de Contaminação
+Devido as amostras virais poderem conter DNA de outros organismos (e.g., humano, bactérias). Essa etapa remove essas leituras para garantir que apenas o genoma viral seja analisado.
+Para isso, utiliza-se frequentemente as ferramentas:
+- BWA, é uma alinhador rápido que mapeia as leituras contra um banco de contaminantes.
+- Samtools, funciona como um filtro de leituras não alinhadas (não contaminadas) e as converte de volta para o formato FASTQ.
+
+CÓDIGO EM PYTHON:
+run_command(f"bwa index {contaminant_db}", "Indexando banco de contaminantes")
+run_command(f"bwa mem {contaminant_db} {input_reads} | samtools view -b -f 4 -o temp_unmapped.bam", "Filtrando leituras não contaminadas")
+run_command(f"samtools fastq temp_unmapped.bam > {output_clean_reads}", "Extraindo leituras não contaminadas")
+
+
+3. Montagem do Genoma
+A montagem é onde há a construção da sequência consenso do genoma viral a partir das leituras limpas. Se torna é essencial identificação de mutações ou estudo da evolução do vírus.
+Para isso, utiliza-se frequentemente a ferramenta:
+- SPAdes, que é um montador eficiente e amplamente usado para genomas pequenos, como os virais. 
+Usa-se as leituras limpas (sem contaminantes) como entrada para o SPAdes para que ele gere contigs (sequências montadas).
+
+CÓDIGO EM PYTHON:
+run_command(f"spades.py -s {input_reads} -o {output_dir} --only-assembler", "Executando SPAdes para montagem")
+
+
+
+
