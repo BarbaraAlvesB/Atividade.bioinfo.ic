@@ -16,10 +16,10 @@ Entrada:
 - Arquivo de adaptadores para remoção.
 - Banco de contaminantes.
 
-A partir dessa determinação, iniciei as etapas propostas clareando o que cada uma deveria contêr:
+A partir dessa determinação, iniciei as etapas propostas clareando o que cada uma deveria conter:
 
 1. Controle de Qualidade das Leituras
-Como os dados de sequenciamento podem conter erros, leituras de baixa qualidade ou adaptadores que interferem na análise, essa etapa deveria garantir que seriam usados apenas dados confiáveis.
+Como os dados de sequenciamento podem conter erros, leituras de baixa qualidade ou adaptadores que interferem na análise, essa etapa deve garantir que seriam usados apenas dados confiáveis.
 Para isso, utiliza-se frequentemente as ferramentas:
 - FastQC, que gera relatórios de qualidade para identificar problemas nas leituras, como baixa qualidade ou adaptadores;
 - Trimmomatic, que busca remover adaptadores e leituras de baixa qualidade com base em critérios predefinidos.
