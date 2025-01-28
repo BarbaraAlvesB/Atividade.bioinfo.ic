@@ -3,7 +3,9 @@ Essa atividade foi realizada por meio de linguagem python.
 --------- ATIVIDADE 2 (RESOLUÇÃO)----------
 
 A partir do arquivo (alinhamento.fasta presente na mesma pasta) calcule a Distância de Hamming: 
-Para resolução dessa atividade, primeiramente determinei uma função que confirmasse que as duas sequências tivessem o mesmo comprimento. Em seguida utilizei funções em python que pudessem comparar os caracteres em posições correspondentes entre duas sequências (formando pares com os elementos de cada posição) e ao mesmo tempo pudesse somar a quantidade de pares não correspondidos nos quais um elemento era diferente do correspondente.
+
+RESOLUÇÃO:
+Para resolução dessa atividade, primeiramente determinei uma função que confirmasse que as duas sequências tivessem o mesmo comprimento. Em seguida utilizei funções em python (sum e zip)que pudessem comparar os caracteres em posições correspondentes entre duas sequências (formando pares com os elementos de cada posição) e ao mesmo tempo pudesse somar a quantidade de pares não correspondidos nos quais um elemento era diferente do correspondente.
 
 - Da sequência B em relação a A
 CÓDIGO UTILIZADO EM PYTHON:
@@ -23,9 +25,10 @@ saída = 686
 A Distância de Hamming da sequência B em relação a A = 686.
 
 - Da sequência C em relação a A
+RESOLUÇÃO:
+Utilizei a função anteriormente criada e apliquei para A e C.
 
 CÓDIGO UTILIZADO EM PYTHON:
-Utilizei a função anteriormente criada e apliquei para A e C.
 
 A = Sequência A presente no arquivo "alinhamento.fasta" 
 C = Sequência C presente no arquivo "alinhamento.fasta" 
