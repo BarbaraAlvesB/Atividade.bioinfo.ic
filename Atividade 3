@@ -1,1 +1,29 @@
 Essa atividade foi realizada por meio do Microsoft Excel
+
+--------- ATIVIDADE 3 (RESOLUÇÃO)----------
+
+A planilha fornecida (dados.zip presente na mesma pasta) contém informações múltiplas para genomas de SARS-CoV-2 sequenciados no Brasil.
+É papel do analista e cientista saber filtrar o que é relevante para sua pesquisa.
+
+Busque o significado das colunas e construa visualizações gráficas que possam mostrar:
+
+A) A evolução genômica com o passar do tempo 
+OBS.: Analise o número de alterações genéticas (substituições, inserções e deleções) como sinônimo de evolução e
+a data fornecida ao final da primeira coluna como sinônimo de tempo
+
+O tratamento de dados inicial consistiu em separar a data do texto contido na primeira coluna. Para isso utilizei as funções: ESQUERDA(), substitui o hífen pela barra para que o Excel reconhecesse como data e a função DATA() para corrigir ou identificar erros contidos na função ESQUERDA().
+Para identificar a quantidade de alterações criei uma coluna com o somatório das colunas identificadas como totalSubstitutions, totalDeletions e totalInsertions.
+Por fim, criei uma tabela dinâmica utilizando dados das colunas criadas "Check data" e "Total de alterações" para plotagem no gráfico dinâmico.
+
+RESULTADO = gráfico anexado no arquivo "Atividade 3 - resultado",aba QA.
+
+
+B) O quantitativo de amostras para cada região e estado brasileiro
+OBS.: Os estados brasileiros também estão na primeira coluna
+
+O tratamento de dados inicial consistiu em separar a UF do texto contido na primeira coluna. Para isso utilizei a função: EXT.TEXTO(). 
+Em seguida atribui as regiões de cada UF, utilizando uma tabela secundária, com a função PROCX().
+Fazendo uma cópia da tabela dinâmica da questão a), relacionei as regiões e o quantitativo de amostras.
+Para isso, ao invés de somar a quantidade de alterações, fiz a contagem das linhas partindo do ponto de que cada linha condiz a uma amostra. Finalizando por plotar os dados nos respectivos gráficos.
+
+RESULTADO = gráfico anexado no arquivo "Atividade 3 - resultado", aba QB.
