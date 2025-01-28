@@ -1,4 +1,4 @@
-Essa atividade foi realizada por meio de linguagem python.
+Essa atividade foi realizada por meio de linguagem python utilizando o jupyter notebook.
 
 --------- ATIVIDADE 2 (RESOLUÇÃO)----------
 
@@ -9,7 +9,8 @@ Para resolução dessa atividade, primeiramente determinei uma função que conf
 
 - Da sequência B em relação a A
 RESOLUÇÃO:
-Criei uma função que garantisse que as duas strings/sequencias tivessem o mesmo comrimento, em seguida comparasse os elementos de posições correspondentes em cada uma das strings e por fim somasse a quantidade de pares nos quais os caracteres correspondentes eram diferentes.
+Criei uma função que garantisse que as duas strings/sequencias tivessem o mesmo comprimento, em seguida comparasse os elementos de posições correspondentes em cada uma das strings e por fim somasse a quantidade de pares nos quais os caracteres correspondentes eram diferentes.
+
 CÓDIGO UTILIZADO EM PYTHON:
 
 def distancia_de_hamming(string1, string2): 
