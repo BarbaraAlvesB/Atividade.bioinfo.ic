@@ -1,6 +1,6 @@
-Para que essa atividade fosse executada, tive que pesquisar e ler bastente sobre pipelines, uma vez que por não ter experiência, não tinha ciência do que se tratava.
-Como eu só havia um breve conhecimento para que pudesse desenvolver um código tão especifico e complexo, optei pelo auxilio de IA juntamente com a curiosidade pelo entedimento das etapas e ferramentas utilizadas.
-A partir do fato que o objetivo principal era gerar uma sequência consenso do genoma viral com alta qualidade, removendo leituras de baixa qualidade, contaminantes e fornecendo métricas básicas de montagem, optei por uma pipeline projetada em linguagem python.
+Para que essa atividade fosse executada, precisei fazer uma intensa pesquisa sobre pipelines, uma vez que por não ter experiência, não tinha ciência do que se tratava.
+Como eu só havia um breve conhecimento para que pudesse desenvolver um código tão especifico e complexo, optei por não recorrer a IA (devido ao conhecimento insuficiente para criticar o resultado gerado pela IA). Mas a curiosidade pelo entedimento das etapas e ferramentas utilizadas me permitiu ao menos ter ciência da base para o desenvolvimento de uma pipeline.
+A partir do fato que o objetivo principal era gerar uma sequência consenso do genoma viral com alta qualidade, removendo leituras de baixa qualidade, contaminantes e fornecendo métricas básicas de montagem, optei por aprender sobre pipelines em linguagem python.
 
 --------------- Iniciando o desenvolvimento da pipeline: ---------------
 
@@ -15,17 +15,13 @@ Saída:
 - Leituras limpas (FASTQ).
 - Arquivo de contigs montados (FASTA).
 
-A partir dessa determinação, iniciei as etapas propostas:
+A partir dessa determinação, iniciei as etapas propostas clareando o que cada uma deveria contêr:
 
 1. Controle de Qualidade das Leituras
 Como os dados de sequenciamento podem conter erros, leituras de baixa qualidade ou adaptadores que interferem na análise, essa etapa deveria garantir que seriam usados apenas dados confiáveis.
 Para isso, utiliza-se frequentemente as ferramentas:
 - FastQC, que gera relatórios de qualidade para identificar problemas nas leituras, como baixa qualidade ou adaptadores;
 - Trimmomatic, que busca remover adaptadores e leituras de baixa qualidade com base em critérios predefinidos.
-
-CÓDIGO EM PYTHON:
-run_command(f"fastqc {input_reads} -o {fastqc_dir}", "Executando FastQC")
-run_command(f"trimmomatic SE {input_reads} {output_clean_reads} ILLUMINACLIP:{adapter_file}:2:30:10 SLIDINGWINDOW:4:20 MINLEN:50","Executando Trimmomatic para limpeza")
 
 
 2. Remoção de Contaminação
@@ -34,11 +30,6 @@ Para isso, utiliza-se frequentemente as ferramentas:
 - BWA, é uma alinhador rápido que mapeia as leituras contra um banco de contaminantes.
 - Samtools, funciona como um filtro de leituras não alinhadas (não contaminadas) e as converte de volta para o formato FASTQ.
 
-CÓDIGO EM PYTHON:
-run_command(f"bwa index {contaminant_db}", "Indexando banco de contaminantes")
-run_command(f"bwa mem {contaminant_db} {input_reads} | samtools view -b -f 4 -o temp_unmapped.bam", "Filtrando leituras não contaminadas")
-run_command(f"samtools fastq temp_unmapped.bam > {output_clean_reads}", "Extraindo leituras não contaminadas")
-
 
 3. Montagem do Genoma
 A montagem é onde há a construção da sequência consenso do genoma viral a partir das leituras limpas. Se torna é essencial identificação de mutações ou estudo da evolução do vírus.
@@ -46,19 +37,21 @@ Para isso, utiliza-se frequentemente a ferramenta:
 - SPAdes, que é um montador eficiente e amplamente usado para genomas pequenos, como os virais. 
 Usa-se as leituras limpas (sem contaminantes) como entrada para o SPAdes para que ele gere contigs (sequências montadas).
 
-CÓDIGO EM PYTHON:
-run_command(f"spades.py -s {input_reads} -o {output_dir} --only-assembler", "Executando SPAdes para montagem")
-
 
 4. Análise de Resultados
-Essa é uma etapa cuscial para avaliar a qualidade do genoma depois de sua montagem. então utiliza-se de métricas como o número de contigs, N50 e o comprimento total para verificar se a montagem foi bem-sucedida.
-
+Essa é uma etapa cuscial para avaliar a qualidade do genoma depois de sua montagem. Então utiliza-se de métricas como o número de contigs, N50 e o comprimento total para verificar se a montagem foi bem-sucedida.
 Para isso, utiliza-se frequentemente a ferramenta:
 Biopython, que manipula arquivos FASTA e calcula métricas básicas.
 Com o uso dessa ferramenta busca-se calcular:
 - Número de contigs.
 - Comprimento total das sequências.
 - N50, que indica a qualidade da montagem (quanto maior, melhor).
+
+LIMITAÇÕES OBSERVADAS:
+Para o desenvolvimento de uma pipeline seguindo esse esquelet, percebo algumas limitações como:
+- Dependência de bancos de dados (para remover contaminantes ou realizar a montagem).
+- Variações no genoma viral (vírus são altamente mutáveis, o que pode dificultar a montagem de uma sequência consenso precisa. Pode resultar em dificuldades para identificar variantes e reconstruir o genoma completo).
+- A identificação de contaminantes é desafiadora (especialmente se o banco de contaminantes não for abrangente ou se o vírus estiver muito próximo de organismos de referência).
 
 
 
