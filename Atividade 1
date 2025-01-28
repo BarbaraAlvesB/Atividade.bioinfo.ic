@@ -46,6 +46,7 @@ RNA_trans = RNA.txt.
 C) Um novo arquivo (nomeado como AA.txt) com a sequência de aminoácidos traduzida.
 
 RESOLUÇÃO:
+Para a tradução do RNA, primeiro criei um dicionário para o código genético determinando a tradução de cada códon. Em seguida adicionei condições para que a minha sequência fosse separas em trios (códon), para inorar códons incompleto e para mostrar códons inválidos.
 
 CÓDIGO UTILIZADO EM PYTHON:
 rna = RNA.txt
