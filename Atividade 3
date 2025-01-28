@@ -15,7 +15,7 @@ O tratamento de dados inicial consistiu em separar a data do texto contido na pr
 Para identificar a quantidade de alterações criei uma coluna com o somatório das colunas identificadas como totalSubstitutions, totalDeletions e totalInsertions.
 Por fim, criei uma tabela dinâmica utilizando dados das colunas criadas "Check data" e "Total de alterações" para plotagem no gráfico dinâmico.
 
-RESULTADO = gráfico anexado no arquivo "Atividade 3 - resultado",aba QA.
+RESULTADO = gráfico anexado no arquivo "Atividade 3 - resolução",aba QA.
 
 
 B) O quantitativo de amostras para cada região e estado brasileiro
@@ -26,4 +26,4 @@ Em seguida atribui as regiões de cada UF, utilizando uma tabela secundária, co
 Fazendo uma cópia da tabela dinâmica da questão a), relacionei as regiões e o quantitativo de amostras.
 Para isso, ao invés de somar a quantidade de alterações, fiz a contagem das linhas partindo do ponto de que cada linha condiz a uma amostra. Finalizando por plotar os dados nos respectivos gráficos.
 
-RESULTADO = gráfico anexado no arquivo "Atividade 3 - resultado", aba QB.
+RESULTADO = gráfico anexado no arquivo "Atividade 3 - resolução", aba QB.
