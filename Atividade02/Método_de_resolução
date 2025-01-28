@@ -8,6 +8,8 @@ RESOLUÇÃO:
 Para resolução dessa atividade, primeiramente determinei uma função que confirmasse que as duas sequências tivessem o mesmo comprimento. Em seguida utilizei funções em python (sum e zip)que pudessem comparar os caracteres em posições correspondentes entre duas sequências (formando pares com os elementos de cada posição) e ao mesmo tempo pudesse somar a quantidade de pares não correspondidos nos quais um elemento era diferente do correspondente.
 
 - Da sequência B em relação a A
+RESOLUÇÃO:
+Criei uma função que garantisse que as duas strings/sequencias tivessem o mesmo comrimento, em seguida comparasse os elementos de posições correspondentes em cada uma das strings e por fim somasse a quantidade de pares nos quais os caracteres correspondentes eram diferentes.
 CÓDIGO UTILIZADO EM PYTHON:
 
 def distancia_de_hamming(string1, string2): 
