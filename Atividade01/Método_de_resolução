@@ -46,7 +46,7 @@ RNA_trans = RNA.txt.
 C) Um novo arquivo (nomeado como AA.txt) com a sequência de aminoácidos traduzida.
 
 RESOLUÇÃO:
-Para a tradução do RNA, primeiro criei um dicionário para o código genético determinando a tradução de cada códon. Em seguida adicionei condições para que a minha sequência fosse separas em trios (códon), para inorar códons incompleto e para mostrar códons inválidos.
+Para a tradução do RNA, primeiro criei um dicionário para o código genético determinando a tradução de cada códon. Em seguida adicionei condições para que minha sequência fosse separada em trios (códon), para inorar códons incompleto e para mostrar códons inválidos.
 
 CÓDIGO UTILIZADO EM PYTHON:
 rna = RNA.txt
@@ -63,7 +63,7 @@ def traduzir_rna_para_aminoacidos(rna):
 aminoacidos = traduzir_rna_para_aminoacidos(rna)
 print(aminoacidos)
 
-Para definir inicio da tradução (metionina) e fim (codon de parada), ainda utilizei a função de imrprimir apenas uma parte limitada da minha string:
+Para definir inicio da tradução (metionina) e fim (codon de parada), ainda utilizei a função de imprimir apenas uma parte limitada da minha string:
 
 def tradução_AA(string, Metionina, codon_parada):
     inicio = string.find(Metionina)
