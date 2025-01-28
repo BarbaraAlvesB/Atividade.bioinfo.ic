@@ -11,6 +11,7 @@ A) A evolução genômica com o passar do tempo
 OBS.: Analise o número de alterações genéticas (substituições, inserções e deleções) como sinônimo de evolução e
 a data fornecida ao final da primeira coluna como sinônimo de tempo
 
+RESOLUÇÃO:
 O tratamento de dados inicial consistiu em separar a data do texto contido na primeira coluna. Para isso utilizei as funções: ESQUERDA(), substitui o hífen pela barra para que o Excel reconhecesse como data e a função DATA() para corrigir ou identificar erros contidos na função ESQUERDA().
 Para identificar a quantidade de alterações criei uma coluna com o somatório das colunas identificadas como totalSubstitutions, totalDeletions e totalInsertions.
 Por fim, criei uma tabela dinâmica utilizando dados das colunas criadas "Check data" e "Total de alterações" para plotagem no gráfico dinâmico.
@@ -21,6 +22,7 @@ RESULTADO = gráfico anexado no arquivo "Atividade - 3 resolução.xlsx",aba QA.
 B) O quantitativo de amostras para cada região e estado brasileiro
 OBS.: Os estados brasileiros também estão na primeira coluna
 
+RESOLUÇÃO:
 O tratamento de dados inicial consistiu em separar a UF do texto contido na primeira coluna. Para isso utilizei a função: EXT.TEXTO(). 
 Em seguida atribui as regiões de cada UF, utilizando uma tabela secundária, com a função PROCX().
 Fazendo uma cópia da tabela dinâmica da questão a), relacionei as regiões e o quantitativo de amostras.
