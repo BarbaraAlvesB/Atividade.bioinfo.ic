@@ -49,10 +49,13 @@ Com o uso dessa ferramenta busca-se calcular:
 
 LIMITAÇÕES OBSERVADAS:
 Para o desenvolvimento de uma pipeline seguindo esse esquelet, percebo algumas limitações como:
-- Dependência de bancos de dados (para remover contaminantes ou realizar a montagem).
+- Dependência de bancos de dados (para remover contaminantes ou realizar a montagem). Uma solução seria atualizar constantemente os bancos de dados de referência e, quando possível, usar bancos de dados específicos para vírus.
 - Variações no genoma viral (vírus são altamente mutáveis, o que pode dificultar a montagem de uma sequência consenso precisa. Pode resultar em dificuldades para identificar variantes e reconstruir o genoma completo).
 - A identificação de contaminantes é desafiadora (especialmente se o banco de contaminantes não for abrangente ou se o vírus estiver muito próximo de organismos de referência).
 
+
+CONCLUSÕES FINAIS:
+Após essa vasta pesquisa, acredito que com mais tempo para entender melhor as ferramentas na prática e poder aplica-las, embora o desafio apresente alto grau de complexidade, com mais tempo e pesquisa eu conseguiria desenvolver uma pipeline que simulasse as etapas principais de montagem de genomas virais.
 
 
 
